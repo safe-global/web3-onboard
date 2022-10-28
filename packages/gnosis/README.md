@@ -10,7 +10,7 @@
 
 ```typescript
 type GnosisOptions = {
-  whitelistedDomains: RegExp[]
+  allowedDomains: RegExp[]
 }
 ```
 
@@ -34,13 +34,13 @@ const connectedWallets = await onboard.connectWallet()
 console.log(connectedWallets)
 ```
 
-## Customizing Gnosis Transaction Gas
+## Customizing Gnosis Safe Transaction Gas
 
-If you are looking to set the `gasLimit` of a transaction within Gnosis, the gas properties within the transaction WILL BE IGNORED.
+If you are looking to set the `gasLimit` of a transaction within Gnosis Safe, the gas properties within the transaction WILL BE IGNORED.
 Instead you will need to use the `safeTxGas` prop AND the web3-onboard Gnosis instance that is exposed through the provider to send along the transaction.
-The Gnosis sdk instance exposed by the web3-onboard must be used to set the `safeTxGas` prop and send the transaction.
-Check [Gnosis docs](https://github.com/safe-global/safe-contracts/blob/a6504a9afdeac186a8cdb29ad68b189523c80eda/docs/safe_tx_gas.md) for full detail as it can be a bit confusing.
-An example of accessing the Gnosis SDK instance and sending a transaction can be found below.
+The Gnosis Safe SDK instance exposed by the web3-onboard must be used to set the `safeTxGas` prop and send the transaction.
+Check the [Safe docs](https://github.com/safe-global/safe-contracts/blob/a6504a9afdeac186a8cdb29ad68b189523c80eda/docs/safe_tx_gas.md) for full detail as it can be a bit confusing.
+An example of accessing the Gnosis Safe SDK instance and sending a transaction can be found below.
 
 ```typescript
 const tx = {
@@ -56,4 +56,4 @@ const params = {
 let trans = await wallet.instance.txs.send({txs:[tx], params})
 ```
 
-Note: With the `safeTxGas` you will see additional value on the `gasLimit` displayed in the Safe. Check [Gnosis docs](https://github.com/safe-global/safe-contracts/blob/a6504a9afdeac186a8cdb29ad68b189523c80eda/docs/safe_tx_gas.md) for full details on that computation.
+Note: With the `safeTxGas` you will see additional value on the `gasLimit` displayed in the Safe. Check the [Safe docs](https://github.com/safe-global/safe-contracts/blob/a6504a9afdeac186a8cdb29ad68b189523c80eda/docs/safe_tx_gas.md) for full details on that computation.
