@@ -1,6 +1,6 @@
 # @web3-onboard/gnosis
 
-## Wallet module for connecting Gnosis Safe to web3-onboard
+## Wallet module for connecting the Safe to web3-onboard
 
 ### Install
 
@@ -34,13 +34,13 @@ const connectedWallets = await onboard.connectWallet()
 console.log(connectedWallets)
 ```
 
-## Customizing Gnosis Safe Transaction Gas
+## Customizing the Safe Transaction Gas
 
-If you are looking to set the `gasLimit` of a transaction within Gnosis Safe, the gas properties within the transaction WILL BE IGNORED.
+If you are looking to set the `gasLimit` of a transaction within the Safe, the gas properties within the transaction WILL BE IGNORED.
 Instead you will need to use the `safeTxGas` prop AND the web3-onboard Gnosis instance that is exposed through the provider to send along the transaction.
-The Gnosis Safe SDK instance exposed by the web3-onboard must be used to set the `safeTxGas` prop and send the transaction.
+The Safe SDK instance exposed by the web3-onboard must be used to set the `safeTxGas` prop and send the transaction.
 Check the [Safe docs](https://github.com/safe-global/safe-contracts/blob/a6504a9afdeac186a8cdb29ad68b189523c80eda/docs/safe_tx_gas.md) for full detail as it can be a bit confusing.
-An example of accessing the Gnosis Safe SDK instance and sending a transaction can be found below.
+An example of accessing the Safe SDK instance and sending a transaction can be found below.
 
 ```typescript
 const tx = {
@@ -52,7 +52,7 @@ const params = {
   safeTxGas: 5000000,
 };
 
-// wallet is the provider exposed by web3-onboard after the Gnosis wallet is connected
+// wallet is the provider exposed by web3-onboard after the Safe is connected
 let trans = await wallet.instance.txs.send({txs:[tx], params})
 ```
 
